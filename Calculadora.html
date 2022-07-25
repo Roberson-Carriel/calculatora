@@ -6,11 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora</title>
     <style>
+        /* CSS para melhoria do designer */
         *{
+            /*Margem e preenchimento zerado*/
             margin: 0;
             padding: 0;
         }
         .fundo{
+            /*Alteração no designer do fundo*/
             background-image: linear-gradient(45deg, rgb(0, 0, 0),rgb(33, 20, 220));
             height: 100vh;
             color: white;
@@ -18,6 +21,7 @@
             text-align: center;
         }
         .calculadora{
+            /*Alterção no designer da calculadora*/
             position: absolute;
             background-color: black;
             border-radius: 15px;
@@ -27,6 +31,7 @@
             transform: translate(-50%,-50%);
         }
         .botao{
+            /*Alteração no disgner dos botões*/
             width: 50px;
             height: 50px;
             font-size: 25px;
@@ -40,6 +45,7 @@
             background-color: black;
         }
         #resultado{
+            /*Alteração no campo do resultado*/
             background-color: white;
             width: 215px;
             height: 30px;
@@ -52,13 +58,15 @@
     </style>
 </head>
 <body>
+    <!--HTML para montar a estrutura da calculadora-->
     <div class="fundo">
-        <h1></h1>
         <div class="calculadora">
             <h1>Calculadora</h1>
             <p id="resultado"></p>
             <table>
+                <!--Feito uma tabela para adicionar os botões da calculadora-->
                 <tr>
+                    <!--Quando clicar o botão recebe sua devida função-->
                     <td><button class="botao" onclick="crean()">C</button></td>
                     <td><button class="botao" onclick="back()"><</button></td>
                     <td><button class="botao" onclick="insert('/')">/</button></td>
@@ -90,30 +98,37 @@
         </div>
     </div>
     <script>
+    //Script em Java
         function insert(num)
+        //Função (insert) para fazer a inserção dos numeros
         {
            var numero= document.getElementById('resultado').innerHTML;
            document.getElementById('resultado').innerHTML=numero+num;
 
         }
         function crean ()
+        //Função (crean) para limpar o campo
         {
             document.getElementById('resultado').innerHTML="";
         }
+        //Função (back) para apagar registro digitado
         function back()
         {
             var resultado=document.getElementById('resultado').innerHTML;
             document.getElementById('resultado').innerHTML=resultado.substring(0,resultado.length-1);
         }
+        //Função (calcular) para fazer os cálculos solicitados
         function calcular()
         {
             var resultado=document.getElementById('resultado').innerHTML;
-
+            //Se a variavel resultado contem valor... 
             if (resultado)
             {
+                //Faz o cálculo pela função (eval)
                 document.getElementById('resultado').innerHTML = eval(resultado);
             }
             else
+            //Se resultado nao contém valor retorna ("Sem valor")
             {
                 document.getElementById('resultado').innerHTML ="Sem valor";
             }
